@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import {motion} from "framer-motion";
+import { useState } from 'react';
+
 
 function App() {
+
+  const [move,setMove] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <br/>
+      <br/>
+      <motion.div animate={{ y: move ? 20 : -20}} 
+      transition={{ type:"spring", bounce:1, duration: 5}}
+      onClick={() => {
+        setMove(!move);
+      }}>
+        <button type='submit' className='button'>Sign Up</button>
+        <button type='submit' className='button'>Sign In</button>
+      </motion.div>
     </div>
   );
 }
